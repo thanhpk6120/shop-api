@@ -1,0 +1,8 @@
+Tái hiện lỗi SHOP-2:
+1. Xác định ứng dụng đang chạy ở port 8080 (PID 25021) dựa vào server.pid.
+2. endpoint /api/calculate gọi tới BugController.java dòng 12.
+3. Lệnh: `curl -i http://localhost:8080/api/calculate`
+   => Trả về: HTTP 500 Internal Server Error, JSON error response.
+4. Lệnh: `curl -i "http://localhost:8080/api/calculate?divisor=0"`
+   => Trả về: HTTP 500 Internal Server Error.
+5. Log ứng dụng: java.lang.ArithmeticException: / by zero tại BugController.calculate(BugController.java:12).
